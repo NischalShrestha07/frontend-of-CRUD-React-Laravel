@@ -1,13 +1,17 @@
 // import { useState } from 'react';
 import React, { useState } from 'react'
-
+// import Api from '../components/api'
+import api from '../components/api';
 const CreatePost = () => {
-
+    const { http } = api()
     const [title, setTitle] = useState();
     const [description, setDescription] = useState();
 
     const submitform = () => {
-
+        //   http.post('./createpost')
+        http.post('/createpost', { title: title, description: description }).then(res => {
+            console.log(res);
+        })
     }
     return (
         <div>
